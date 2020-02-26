@@ -1,0 +1,32 @@
+<?php
+/**
+ * @var Atom\Loader\Block\Widget\Loader $block
+ */
+?>
+<?php if ($id = $block->getId()): ?>
+<?php
+$idElement = 'atomloader_'.uniqid();
+?>​
+<table>
+    <tr>
+        <td width="200">
+            <div id="<?= $idElement; ?>"></div>
+        </td>
+    </tr>
+</table>
+​
+    <script>
+        require([
+            'jquery',
+            '//storage.googleapis.com/qubit_viewport_releases/v1.0.0/core.js',
+        ], function($){
+            new qubit.viewport.PlacementViewport({
+                "className":"qubit-viewport-TextOnImageFixedSizeTable564862",
+                "template":"\n<div onclick=\"qubit.viewport.Utils.openURL('[[link]]');\"\n   class=\"force-height-auto force-width-hun\" \n   style=\"\n    position: relative;\n    text-align: center;\">\n  <img templated=\"attribute:src:image\" style=\"\n    width: 100%;\n    height: auto;\n    margin-left: auto;\n    margin-right: auto;\n    \"/>\n  <div>\n    <font> </font>\n    <font templated=\"html:message\"></font>\n    <font> </font>\n  </div>\n</div>\n    ","css":"\n.qubit-viewport-TextOnImageFixedSizeTable564862 .force-width-hun {\n  width: 100% !important;\n}\n.qubit-viewport-TextOnImageFixedSizeTable564862 .force-height-auto {\n  height: auto !important;\n}\n",
+                "name":"",
+                "parentContainer":"<?= $idElement ?>",
+                "insertionMode":"REPLACE",
+                "placement":{"id":"<?= $id ?>"}}).load();
+        });
+    </script>
+<?php endif; ?>

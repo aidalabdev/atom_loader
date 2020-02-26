@@ -1,0 +1,21 @@
+{
+    "name": "atom/loader",
+    "description": "Atom Loader Widget",
+    "version": "1.0.0",
+    "require": {
+        "php": "~7.0.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Atom\\Loader\\": ""
+        }
+    }
+}
